@@ -12,21 +12,46 @@ export default class App extends Application {
         })
         const gameport = document.getElementById("gameport")
         gameport.appendChild(this.view)
+
+        this.init()
+
+        window.addEventListener('resize', this.onResize.bind(this))
     }
 
     init() {
-
+        this.loader.add('bg', './assets/background.png')
+        this.loader.add('ground', './assets/ground.png')
+        this.loader.add('player', './assets/player.png')
+        this.loader.add('clouds', './assets/clouds.png')
+        this.loader.load(this.draw.bind(this))
     }
 
     draw() {
+        this.background = new Background()
+        this.ground = new Ground()
+        this.clouds = new Clouds()
+        this.player = new Player()
+        this.stage.addChild(this.background, this.ground, this.clouds, this.player)
+        this.setSize()
 
+        // Create an update loop
+        this.ticker.add(this.onUpdate.bind(this))
     }
 
+    /*
+        Updates the ground and clouds to simulate motion every frame
+     */
     onUpdate(delta){
-
+        this.ground.onUpdate(delta)
+        this.clouds.onUpdate(delta)
     }
 
-    onKeyPress() {
-
+    setSize() {
+        this.renderer.resize(800, 800)
+        const width = this.renderer.width, height = this.renderer.height
+        this.background.setSize(width, height)
+        this.ground.setSize(width, height)
+        this.clouds.setSize(width, height)
+        this.player.setSize(width, height)
     }
 }
