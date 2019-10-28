@@ -2,15 +2,16 @@ import { Texture } from '@pixi/core'
 import { Sprite } from '@pixi/sprite'
 import anime from 'animejs'
 
-export default class Player extends Sprite {
+export default class Enemy extends Sprite {
     constructor() {
         super(Texture.EMPTY)
 
         this.sprite = Sprite.from('enemy')
         this.sprite.anchor.set(0.5)
         this.sprite.scale.set(.85)
-        this.addChild(this.sprite)
-
+        this.addChild(this.sprite) 
+        console.log("Enemy width: " + this.width)
+        console.log("Enemy height: " + this.height)
         this.animate()
     }
 
@@ -53,20 +54,6 @@ export default class Player extends Sprite {
 
     onUpdate(delta) {
         this.x <= (-100 - this.width) ? this.setSize(800, 800) : this.x -= delta * 3
-    }
-
-    checkCollision(enemyX, enemyY, enemyWidth, enemyHeight) {
-        let distanceVectX = (enemyX + enemyWidth / 2) - (this.x + this.width / 2)
-        let distanceVectY = (enemyY + enemyHeight / 2) - (this.y + this.height / 2)
-        let halfWidths = (enemyWidth / 2) + (this.width / 2)
-        let halfHeights = (enemyHeight / 2) + (this.height / 2)
-
-        if(Math.abs(distanceVectX) < halfWidths && Math.abs(distanceVectY) < halfHeights)
-        {
-            console.log("COLLISION")
-            return true;
-        }
-        return false;
     }
 
     setSize(width, height) {

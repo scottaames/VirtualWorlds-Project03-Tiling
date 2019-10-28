@@ -53,20 +53,6 @@ export default class Player extends Sprite {
         })
     }
 
-    checkCollision(enemyX, enemyY, enemyWidth, enemyHeight) {
-        let distanceVectX = (enemyX + enemyWidth / 2) - (this.x + this.width / 2)
-        let distanceVectY = (enemyY + enemyHeight / 2) - (this.y + this.height / 2)
-        let halfWidths = (enemyWidth / 2) + (this.width / 2)
-        let halfHeights = (enemyHeight / 2) + (this.height / 2)
-
-        if(Math.abs(distanceVectX) < halfWidths && Math.abs(distanceVectY) < halfHeights)
-        {
-            console.log("COLLISION")
-            return true;
-        }
-        return false;
-    }
-
     onKeyPress(e) {
         let minHeight = 700 - (this.height / 2)
         let maxHeight = 50 + (this.height / 2)
