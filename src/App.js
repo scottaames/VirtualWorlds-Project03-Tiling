@@ -36,9 +36,12 @@ export default class App extends Application {
             height: 80,
             onTap: () => location.reload()
         })
-        this.endText = new Text('Sorry, you lost', {fill: '#FFFFFF'})
-        this.endText.anchor.set(0.5)
-        this.endText.position.set(400, 200)
+        this.loseText = new Text('Sorry, you lost', {fill: '#FFFFFF', fontSize: 28})
+        this.loseText.anchor.set(0.5)
+        this.loseText.position.set(400, 200)
+        this.winText = new Text('You survived for 30 seconds, you won!', {fill: 'yellow', fontSize: 28})
+        this.winText.anchor.set(0.5)
+        this.winText.position.set(400, 200)
         this.background = new Background()
         this.ground = new Ground()
         this.clouds = new Clouds()
@@ -54,8 +57,9 @@ export default class App extends Application {
         this.timer.position.set(0, 10)
         this.timerId = setInterval(this.countdownTimer.bind(this), 1000)
         this.restartBtn.visible = false
-        this.endText.visible = false
-        this.stage.addChild(this.restartBtn, this.timer, this.endText, this.background, this.ground, this.clouds, this.player, this.enemy)
+        this.loseText.visible = false
+        this.winText.visible = false
+        this.stage.addChild(this.restartBtn, this.timer, this.loseText, this.winText, this.background, this.ground, this.clouds, this.player, this.enemy)
         this.setSize()
 
         // Create an update loop
@@ -79,7 +83,7 @@ export default class App extends Application {
             this.ground.visible = false
             this.timer.visible = false
             this.restartBtn.visible = true
-            this.endText.visible = true
+            this.loseText.visible = true
         }
 
         if(this.enemy.checkCollision(this.player.x, this.player.y, this.player.width, this.player.height))
@@ -91,7 +95,7 @@ export default class App extends Application {
             this.ground.visible = false
             this.timer.visible = false
             this.restartBtn.visible = true
-            this.endText.visible = true
+            this.loseText.visible = true
         }
 
     }
@@ -107,7 +111,7 @@ export default class App extends Application {
             this.ground.visible = false
             this.timer.visible = false
             this.restartBtn.visible = true
-            this.endText.visible = true
+            this.winText.visible = true
         }
         else
         {

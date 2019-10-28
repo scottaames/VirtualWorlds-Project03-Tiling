@@ -8,7 +8,7 @@ export default class Player extends Sprite {
 
         this.sprite = Sprite.from('enemy')
         this.sprite.anchor.set(0.5)
-        this.sprite.scale.set(.8)
+        this.sprite.scale.set(.85)
         this.addChild(this.sprite)
 
         this.animate()
