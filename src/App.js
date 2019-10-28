@@ -81,6 +81,19 @@ export default class App extends Application {
             this.restartBtn.visible = true
             this.endText.visible = true
         }
+
+        if(this.enemy.checkCollision(this.player.x, this.player.y, this.player.width, this.player.height))
+        {
+            this.background.visible = false
+            this.player.visible = false
+            this.clouds.visible = false
+            this.enemy.visible = false
+            this.ground.visible = false
+            this.timer.visible = false
+            this.restartBtn.visible = true
+            this.endText.visible = true
+        }
+
     }
 
     countdownTimer() {
