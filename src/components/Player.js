@@ -10,6 +10,9 @@ export default class Background extends Sprite {
         this.sprite.anchor.set(0.5)
         this.addChild(this.sprite)
 
+        window.addEventListener('keydown', e => this.onKeyPress(e) )
+        window.addEventListener('keyup', e => this.onKeyUp(e) )
+
         this.animate()
     }
 
@@ -48,6 +51,22 @@ export default class Background extends Sprite {
             loop: true,
             direction: 'alternate'
         })
+    }
+
+    onKeyPress(e) {
+
+        let minHeight = 700 - (this.height / 2)
+        let maxHeight = 50 + (this.height / 2)
+        switch (e.key) {
+            case 'w':
+                this.y <= maxHeight ? this.y = maxHeight - 10 : this.y -= 16
+            case 's':
+                this.y >= minHeight ? this.y = minHeight : this.y += 8
+        }
+    }
+
+    onKeyUp(e) {
+        this.y += 0
     }
 
     setSize(width, height) {

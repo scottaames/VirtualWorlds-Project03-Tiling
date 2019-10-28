@@ -14,8 +14,6 @@ export default class App extends Application {
         gameport.appendChild(this.view)
 
         this.init()
-
-        window.addEventListener('resize', this.onResize.bind(this))
     }
 
     init() {
@@ -46,6 +44,9 @@ export default class App extends Application {
         this.clouds.onUpdate(delta)
     }
 
+    /*
+        Sets the size for all objects centered around the renderer size
+     */
     setSize() {
         this.renderer.resize(800, 800)
         const width = this.renderer.width, height = this.renderer.height
