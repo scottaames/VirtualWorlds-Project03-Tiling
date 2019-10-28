@@ -57,6 +57,7 @@ export default class Background extends Sprite {
 
         let minHeight = 700 - (this.height / 2)
         let maxHeight = 50 + (this.height / 2)
+
         switch (e.key) {
             case 'w':
                 this.y <= maxHeight ? this.y = maxHeight - 10 : this.y -= 16
