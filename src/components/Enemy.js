@@ -52,11 +52,15 @@ export default class Player extends Sprite {
     }
 
     onUpdate(delta) {
-        this.x <= (0 - this.width) ? this.x = 1000 : this.x -= delta * 2
+        this.x <= (0 - this.width) ? this.x = 1000 : this.x -= delta * 3
     }
 
     setSize(width, height) {
-        this.x = width - 200
-        this.y = height / 2
+        this.x = width + 200
+        this.y = this.randomInt(100, 600)
+    }
+
+    randomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 }

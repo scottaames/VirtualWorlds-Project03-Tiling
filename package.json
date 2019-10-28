@@ -26,9 +26,12 @@
   "dependencies": {
     "@pixi/app": "^5.0.4",
     "@pixi/core": "^5.0.4",
+    "@pixi/interaction": "^5.1.5",
     "@pixi/loaders": "^5.0.4",
+    "@pixi/mesh-extras": "^5.1.5",
     "@pixi/sprite": "^5.0.4",
     "@pixi/sprite-tiling": "^5.1.5",
+    "@pixi/text": "^5.1.5",
     "@pixi/ticker": "^5.0.4",
     "animejs": "^3.0.1"
   }
