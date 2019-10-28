@@ -6,6 +6,7 @@ import Clouds from './components/Clouds'
 import Player from './components/Player'
 import Enemy from './components/Enemy'
 import Button from './components/Button'
+import Collision from './components/Collision'
 
 export default class App extends Application {
     constructor(){
@@ -73,31 +74,24 @@ export default class App extends Application {
         this.ground.onUpdate(delta)
         this.clouds.onUpdate(delta)
         this.enemy.onUpdate(delta)
+        // console.log("Enemy width: " + this.enemy.width)
+        // console.log("Enemy height: " + this.enemy.height)
 
-        if(this.player.checkCollision(this.enemy.x, this.enemy.y, this.enemy.width, this.enemy.height))
+        if(Collision.checkRectangleCollision(this.player, this.enemy))
         {
-            this.background.visible = false
-            this.player.visible = false
-            this.clouds.visible = false
-            this.enemy.visible = false
-            this.ground.visible = false
-            this.timer.visible = false
-            this.restartBtn.visible = true
-            this.loseText.visible = true
+            this.goToEndScreen()
         }
+    }
 
-        if(this.enemy.checkCollision(this.player.x, this.player.y, this.player.width, this.player.height))
-        {
-            this.background.visible = false
-            this.player.visible = false
-            this.clouds.visible = false
-            this.enemy.visible = false
-            this.ground.visible = false
-            this.timer.visible = false
-            this.restartBtn.visible = true
-            this.loseText.visible = true
-        }
-
+    goToEndScreen(){
+        this.background.visible = false
+        this.player.visible = false
+        this.clouds.visible = false
+        this.enemy.visible = false
+        this.ground.visible = false
+        this.timer.visible = false
+        this.restartBtn.visible = true
+        this.loseText.visible = true
     }
 
     countdownTimer() {
