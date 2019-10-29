@@ -16,10 +16,10 @@
 ## Creative objective
 
 - [X] complelling and attractive design
-- [ ] interesting and fun
+- [X] interesting and fun
 - [X] Consistent palette/ Style
 - [X] Consistent branding/ atmosphere
-- [ ] Balance of difficulty
+- [X] Balance of difficulty
 
 ## Overview of the Game (subect to change)
 
@@ -29,13 +29,12 @@ contact, you lose.
 
 ## TODO list (feel free to add more)
 
-- [ ] make screens
-- [ ] add menu navigation
+- [X] make screens
+- [X] add menu navigation
 - [X] add camera movement or somehting to mimic that
 - [X] player movement
-- [ ] enemy movenment
+- [X] enemy movenment
 - [ ] generation of all entities on map
 - [X] collision with "walls" of map
-- [ ] collision behavior between player and enemies
-- [ ] timer to track win condition
-- [ ] keeping track of chickens collected and behavoir after all are collected
+- [X] collision behavior between player and enemies
+- [X] timer to track win condition
