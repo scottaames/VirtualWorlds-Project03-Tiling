@@ -34,7 +34,7 @@ contact, you lose.
 - [X] add camera movement or somehting to mimic that
 - [X] player movement
 - [X] enemy movenment
-- [ ] generation of all entities on map
+- [X] generation of all entities on map
 - [X] collision with "walls" of map
 - [X] collision behavior between player and enemies
 - [X] timer to track win condition
