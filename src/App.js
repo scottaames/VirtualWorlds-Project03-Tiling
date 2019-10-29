@@ -74,8 +74,6 @@ export default class App extends Application {
         this.ground.onUpdate(delta)
         this.clouds.onUpdate(delta)
         this.enemy.onUpdate(delta)
-        // console.log("Enemy width: " + this.enemy.width)
-        // console.log("Enemy height: " + this.enemy.height)
 
         if(Collision.checkRectangleCollision(this.player, this.enemy))
         {

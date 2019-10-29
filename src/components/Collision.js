@@ -11,8 +11,7 @@ export default class Collision {
         xVector = (rect1.x + rect1.width / 2) - (rect2.x + rect2.sprite.width /2);
         yVector = (rect1.y + rect1.height / 2) - (rect2.y + rect2.sprite.height / 2);
 
-        //Figure out the combined half-widths(with a more leaniate threshold for gameplay)
-        //and half-heights
+        //Figure out the combined half-widths and half-heights
         combinedHalfWidths = (rect1.sprite.width / 2) + (rect2.sprite.width / 2);
         combinedHalfHeights = (rect1.sprite.height / 2) + (rect2.sprite.height / 2);
 
